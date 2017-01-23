@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.cc.afali.glideprogress"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // #Google Support Libraries
+    compile deps.supportCompat
+    compile deps.supportCoreUtils
+    compile deps.supportCoreUI
+    compile deps.supportFragment
+    compile deps.supportv13
+    compile deps.supportdesign
+    compile deps.appcompatv7
+    compile deps.cardview
+
+    //#Glide
+    compile deps.glide
+
+    //okhttp
+    compile deps.okhttp
+
+    //#Binding
+    compile deps.bkInject
+    annotationProcessor deps.bkAnnotation
+
+    //Progress
+    compile deps.ringProgressBar
+
+}

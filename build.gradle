@@ -1,0 +1,52 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    supportLibVersion = '25.1.0'
+    butterKnifeVersion = '8.4.0'
+    okhttpVersion = '3.5.0'
+
+    deps = [
+            // Support libs
+            supportCompat   : "com.android.support:support-compat:$supportLibVersion",
+            supportCoreUtils: "com.android.support:support-core-utils:$supportLibVersion",
+            supportCoreUI   : "com.android.support:support-core-utils:$supportLibVersion",
+            supportFragment : "com.android.support:support-fragment:$supportLibVersion",
+            supportv13      : "com.android.support:support-v13:$supportLibVersion",
+            supportdesign   : "com.android.support:design:$supportLibVersion",
+            appcompatv7     : "com.android.support:appcompat-v7:$supportLibVersion",
+            cardview        : "com.android.support:cardview-v7:$supportLibVersion",
+
+            //Okhttp
+            okhttp          : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+
+            // Other
+            glide           : "com.github.bumptech.glide:glide:3.7.0",
+            bkInject        : "com.jakewharton:butterknife:$butterKnifeVersion",
+            bkAnnotation    : "com.jakewharton:butterknife-compiler:$butterKnifeVersion",
+            ringProgressBar : "com.github.HotBitmapGG:RingProgressBar:V1.2.2"
+    ]
+
+}
